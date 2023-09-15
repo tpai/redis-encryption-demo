@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  redis:
+    image: redis:7.2-alpine
+    container_name: redis
+    command: |
+      /app/entrypoint.sh
+    ports:
+      - 6380:6380
+    volumes:
+      - redis:/data
+      - ./certs:/app/certs
+      - ./entrypoint.sh:/app/entrypoint.sh
+    restart: always
+
+volumes:
+  redis:
