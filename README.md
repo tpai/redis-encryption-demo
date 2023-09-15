@@ -1,12 +1,12 @@
 # Redis Encryption Demo
 
-This repository contains a Docker setup for Redis and Nginx. It features two main functionalities:
+This repository contains docker compose files:
 
 1. **Nginx as a Proxy for Redis**: Nginx is configured to act as a proxy for Redis, forwarding requests from clients to the Redis server.
 
-2. **End-to-End Encryption for Redis**: This setup enables TLS encryption for all data in transit between clients and the Redis server, ensuring that sensitive data is protected.
+2. **End-to-End Encryption for Redis**: This setup enables SSL encryption for all data in transit between clients and the Redis server, ensuring that sensitive data is protected.
 
-The setup includes Docker Compose configurations for both standard and end-to-end testing environments, necessary scripts, and configuration files.
+![diagram](diagram.png)
 
 ## Prerequisites
 
@@ -35,5 +35,5 @@ Here are some example commands to interact with the Redis server:
 redis-cli -h localhost -p 6380
 
 # Connect to Redis with TLS
-redis-cli --tls -h localhost -p 6380
+redis-cli --tls --cacert path/to/cacert --cert path/to/cert --key path/to/key -h localhost -p 6380
 ```
